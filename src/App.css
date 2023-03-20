@@ -58,7 +58,8 @@ h3 {
 /* EMOJI WRAPPER */
 
 .emoji-wrapper {
-  margin-top: 2em;
+  margin-top: 2.5em;
+  margin-bottom: -0.8rem;
 }
 
 .emoji-wrapper > span {
@@ -117,6 +118,8 @@ h3 {
 
   width: 80%;
   margin-top: 2em;
+
+  color: rgba(134, 53, 50, 0.878);
 }
 
 .city-header-console {
@@ -125,6 +128,7 @@ h3 {
 
 .player-name-display {
   margin-bottom: 0.4em;
+  color: rgba(54, 75, 6, 0.783);
 }
 
 .day-title-wrapper {
@@ -135,4 +139,31 @@ h3 {
 
 .city-title {
   font-size: 1.2rem;
+}
+
+/* sales display */
+
+.sale-display {
+  margin-top: 4rem;
+}
+
+.sale-container {
+  margin-top: 1.5rem;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.fruit-item {
+  color: rgba(86, 56, 8, 0.838);
+}
+
+.price-wrapper {
+  display: flex;
+}
+
+.fruit-price {
+  color: rgba(18, 110, 20, 0.937);
+  margin-right: 0.6em;
 }

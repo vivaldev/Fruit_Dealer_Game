@@ -11,6 +11,34 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentDay, setCurrentDay] = useState(0);
 
+  const fruitsArray = [
+    {
+      id: 1,
+      fruit: "Pineapple",
+      price: 2.3,
+    },
+    {
+      id: 2,
+      fruit: "Mango",
+      price: 5.5,
+    },
+    {
+      id: 3,
+      fruit: "Watermelon",
+      price: 4.2,
+    },
+    {
+      id: 4,
+      fruit: "Pear",
+      price: 1.2,
+    },
+    {
+      id: 5,
+      fruit: "Kiwi",
+      price: 1.6,
+    },
+  ];
+
   function handleUsernameChange(e) {
     // console.log(e.target.value);
 
@@ -29,10 +57,14 @@ function App() {
     <div className="App">
       <div className="container">
         <Header />
-        <Emojis />
 
         {gameStarted ? (
-          <City playerName={playerName} city="Pori" currentDate={currentDay} />
+          <City
+            playerName={playerName}
+            city="Pori"
+            currentDate={currentDay}
+            fruitsArray={fruitsArray}
+          />
         ) : (
           <StartForm
             handleUsernameChange={handleUsernameChange}
