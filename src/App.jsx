@@ -1,20 +1,44 @@
 import React, { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
+import Header from "./components/Header";
+import Emojis from "./components/Emojis";
+import StartForm from "./components/StartForm";
+import City from "./components/City";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [playerName, setPlayerName] = useState("");
+  const [gameStarted, setGameStarted] = useState(false);
+  const [currentDay, setCurrentDay] = useState(0);
+
+  function handleUsernameChange(e) {
+    // console.log(e.target.value);
+
+    setPlayerName(e.target.value);
+  }
+
+  function startGame(e) {
+    e.preventDefault();
+    console.log(`The player is ${playerName}`);
+    setGameStarted(true);
+    console.log(`Game is started? ${gameStarted}`);
+    setCurrentDay((prevDay) => prevDay + 1);
+  }
 
   return (
     <div className="App">
       <div className="container">
-        <h1>Fruit Dealer</h1>
+        <Header />
+        <Emojis />
 
-        <form className="start-form">
-          <input type="text" placeholder="Username..." />
-          <button type="submit">Start</button>
-        </form>
+        {gameStarted ? (
+          <City playerName={playerName} city="Pori" currentDate={currentDay} />
+        ) : (
+          <StartForm
+            handleUsernameChange={handleUsernameChange}
+            startGame={startGame}
+          />
+        )}
       </div>
     </div>
   );

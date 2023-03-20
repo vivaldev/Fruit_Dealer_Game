@@ -14,6 +14,9 @@
   -webkit-text-size-adjust: 100%;
 }
 
+h3 {
+  margin: 0;
+}
 .App {
   width: 100vw;
   height: 100svh;
@@ -21,26 +24,115 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: rgba(218, 73, 21, 0.668);
 }
 
 .container {
-  border: 3px double rgb(160, 160, 160);
+  border: 6px double rgba(237, 150, 83, 0.829);
   width: 30vw;
   height: 70svh;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  background-color: rgba(190, 135, 33, 0.783);
+}
+
+/* HEADER */
+
+.header {
+  text-align: center;
+  color: rgb(220, 198, 158);
+  border-bottom: 3px double rgb(195, 177, 143);
+
+  width: 60%;
+  margin-top: 1.5em;
+}
+
+.header > h1 {
+  margin-bottom: 0.3em;
+}
+
+/* EMOJI WRAPPER */
+
+.emoji-wrapper {
+  margin-top: 2em;
+}
+
+.emoji-wrapper > span {
+  font-size: 3.25rem;
+  margin-right: 0.2em;
 }
 
 /* START FORM */
 
 .start-form {
-  border: 1px solid rgb(122, 116, 116);
-  width: 50%;
-  height: 20%;
+  border: 4px double rgba(206, 54, 54, 0.687);
+  border-radius: 20px;
+  width: 80%;
+  height: 26%;
 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  margin-top: 15%;
+}
+
+.start-form > input {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgb(24, 38, 2);
+
+  padding: 0.5rem;
+  margin: 1.2em 1.2em 0 1.2em;
+
+  border-radius: 10px;
+  background-color: rgba(181, 114, 86, 0.766);
+}
+
+.start-form > button {
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  padding: 0.3rem;
+  margin: 0 1.2em 1.2em 1.2em;
+
+  background-color: rgba(47, 141, 39, 0.535);
+  color: rgb(197, 224, 135);
+  border-radius: 5px;
+  box-shadow: 0.2rem 0.2rem 0.3rem rgba(30, 93, 25, 0.535);
+}
+
+/* CITY */
+
+.city {
+  /* border: 1px dotted white; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 80%;
+  margin-top: 2em;
+}
+
+.city-header-console {
+  width: 100%;
+}
+
+.player-name-display {
+  margin-bottom: 0.4em;
+}
+
+.day-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.city-title {
+  font-size: 1.2rem;
 }
