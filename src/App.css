@@ -143,6 +143,12 @@ h3 {
 
 /* sales display */
 
+.sale-info {
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
 .sale-display {
   margin-top: 4rem;
 }
@@ -166,4 +172,25 @@ h3 {
 .fruit-price {
   color: rgba(18, 110, 20, 0.937);
   margin-right: 0.6em;
+}
+
+.buy-btn,
+.sell-btn {
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(33, 85, 2, 0.983);
+  padding: 0.3rem;
+}
+
+.buy-btn:hover,
+.sell-btn:hover {
+  cursor: pointer;
+}
+
+.buy-btn {
+  background-color: rgba(11, 11, 119, 0.857);
+  margin-right: 2px;
+}
+
+.sell-btn {
+  background-color: rgb(148, 11, 11);
 }

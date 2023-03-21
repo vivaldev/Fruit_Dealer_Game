@@ -16,26 +16,31 @@ function App() {
       id: 1,
       fruit: "Pineapple",
       price: 2.3,
+      quantity: 2,
     },
     {
       id: 2,
       fruit: "Mango",
       price: 5.5,
+      quantity: 5,
     },
     {
       id: 3,
       fruit: "Watermelon",
       price: 4.2,
+      quantity: 3,
     },
     {
       id: 4,
       fruit: "Pear",
       price: 1.2,
+      quantity: 5,
     },
     {
       id: 5,
       fruit: "Kiwi",
       price: 1.6,
+      quantity: 4,
     },
   ];
 
