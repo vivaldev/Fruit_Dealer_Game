@@ -1,20 +1,22 @@
 import React from "react";
 
-const City = ({ playerName, currentDate, city, fruitsArray }) => {
-  const items = fruitsArray.map((item) => {
-    return (
-      <div className="sale-container" key={item.id}>
-        <h3 className="item-quantity">{item.quantity}</h3>
-        <h3 className="fruit-item">{item.fruit}</h3>
+const City = ({ playerName, currentDate, city, cities }) => {
+  const items = cities
+    .find((c) => c.name === city)
+    .fruits.map((fruit) => {
+      return (
+        <div className="sale-container" key={fruit.id}>
+          <h3 className="item-quantity">{fruit.quantity}</h3>
+          <h3 className="fruit-item">{fruit.fruit}</h3>
 
-        <div className="price-wrapper">
-          <h3 className="fruit-price">${item.price}</h3>
-          <button className="buy-btn">Buy</button>
-          <button className="sell-btn">Sell</button>
+          <div className="price-wrapper">
+            <h3 className="fruit-price">${fruit.price}</h3>
+            <button className="buy-btn">Buy</button>
+            <button className="sell-btn">Sell</button>
+          </div>
         </div>
-      </div>
-    );
-  });
+      );
+    });
 
   return (
     <div className="city">
