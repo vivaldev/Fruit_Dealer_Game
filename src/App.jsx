@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Header from "./components/Header";
@@ -7,6 +7,30 @@ import City from "./components/City";
 import Map from "./components/Map";
 import PlayerItems from "./components/PlayerItems";
 import MiddleConsole from "./components/MiddleConsole";
+
+function getPriceAndQuantity(cityFruitPrices) {
+  const priceAndQuantity = {};
+  for (const cityFruit of cityFruitPrices) {
+    const city = cityFruit.city;
+    priceAndQuantity[city] = {};
+    for (const [
+      fruit,
+      {
+        price: [minPrice, maxPrice],
+        quantity: [minQuantity, maxQuantity],
+      },
+    ] of Object.entries(cityFruit.fruits)) {
+      const price = Math.round(
+        Math.random() * (maxPrice - minPrice) + minPrice
+      );
+      const quantity = Math.round(
+        Math.random() * (maxQuantity - minQuantity) + minQuantity
+      );
+      priceAndQuantity[city][fruit] = { price, quantity };
+    }
+  }
+  return priceAndQuantity;
+}
 
 function App() {
   const [player, setPlayer] = useState({
@@ -17,53 +41,140 @@ function App() {
   const [firstScene, setFirstScene] = useState(true);
   const [currentDate, setCurrentDate] = useState(0);
   const [currentCity, setCurrentCity] = useState("");
-  const [prices, setPrices] = useState([
+
+  const [cityFruitPrices, setCityFruitPrices] = useState([
     {
-      Pori: {
-        Pineapple: null,
-        Mango: null,
-        Watermelon: null,
-        Pear: null,
-        Kiwi: null,
+      city: "Pori",
+      fruits: {
+        pineapple: {
+          price: [2, 5],
+          quantity: [0, 10],
+        },
+        mango: {
+          price: [5, 10],
+          quantity: [0, 4],
+        },
+        watermelon: {
+          price: [4, 8],
+          quantity: [0, 5],
+        },
+        pear: {
+          price: [1, 5],
+          quantity: [0, 15],
+        },
+        kiwi: {
+          price: [1, 7],
+          quantity: [0, 8],
+        },
       },
     },
     {
-      Turku: {
-        Pineapple: null,
-        Mango: null,
-        Watermelon: null,
-        Pear: null,
-        Kiwi: null,
+      city: "Turku",
+      fruits: {
+        pineapple: {
+          price: [3, 6],
+          quantity: [0, 8],
+        },
+        mango: {
+          price: [4, 8],
+          quantity: [0, 6],
+        },
+        watermelon: {
+          price: [5, 10],
+          quantity: [0, 6],
+        },
+        pear: {
+          price: [2, 6],
+          quantity: [0, 12],
+        },
+        kiwi: {
+          price: [2, 8],
+          quantity: [0, 10],
+        },
       },
     },
     {
-      Helsinki: {
-        Pineapple: null,
-        Mango: null,
-        Watermelon: null,
-        Pear: null,
-        Kiwi: null,
+      city: "Tampere",
+      fruits: {
+        pineapple: {
+          price: [2, 6],
+          quantity: [0, 12],
+        },
+        mango: {
+          price: [3, 7],
+          quantity: [0, 8],
+        },
+        watermelon: {
+          price: [6, 12],
+          quantity: [0, 8],
+        },
+        pear: {
+          price: [1, 4],
+          quantity: [0, 20],
+        },
+        kiwi: {
+          price: [2, 6],
+          quantity: [0, 12],
+        },
       },
     },
     {
-      Tampere: {
-        Pineapple: null,
-        Mango: null,
-        Watermelon: null,
-        Pear: null,
-        Kiwi: null,
+      city: "Helsinki",
+      fruits: {
+        pineapple: {
+          price: [4, 8],
+          quantity: [0, 15],
+        },
+        mango: {
+          price: [7, 12],
+          quantity: [0, 5],
+        },
+        watermelon: {
+          price: [5, 10],
+          quantity: [0, 10],
+        },
+        pear: {
+          price: [2, 6],
+          quantity: [0, 18],
+        },
+        kiwi: {
+          price: [3, 9],
+          quantity: [0, 14],
+        },
       },
     },
     {
-      Rauma: {
-        Pineapple: null,
-        Mango: null,
-        Watermelon: null,
-        Pear: null,
-        Kiwi: null,
+      city: "Rauma",
+      fruits: {
+        pineapple: {
+          price: [3, 7],
+          quantity: [0, 8],
+        },
+        mango: {
+          price: [6, 11],
+          quantity: [0, 4],
+        },
+        watermelon: {
+          price: [4, 9],
+          quantity: [0, 6],
+        },
+        pear: {
+          price: [1, 4],
+          quantity: [0, 16],
+        },
+        kiwi: {
+          price: [2, 7],
+          quantity: [0, 10],
+        },
       },
     },
   ]);
+
+  const [priceAndQuantity, setPriceAndQuantity] = useState(() =>
+    getPriceAndQuantity(cityFruitPrices)
+  );
+
+  console.log(priceAndQuantity);
 
   const cities = [
     {
@@ -280,8 +391,6 @@ function App() {
     // console.log(e.target.value);
     setPlayer({ ...player, name: e.target.value });
   }
-
-  function getPrices() {}
 
   function startGame(e) {
     e.preventDefault();
