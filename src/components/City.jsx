@@ -1,12 +1,12 @@
 import React from "react";
 
-const City = ({ playerName, currentDate, city, cities }) => {
+const City = ({ player, currentDate, city, cities }) => {
   const items = cities
     .find((c) => c.name === city)
     .fruits.map((fruit) => {
       return (
         <div className="sale-container" key={fruit.id}>
-          <h3 className="item-quantity">{fruit.quantity}</h3>
+          <h3 className="item-quantity">{fruit.quantity} fruits</h3>
           <h3 className="fruit-item">{fruit.fruit}</h3>
 
           <div className="price-wrapper">
@@ -21,18 +21,29 @@ const City = ({ playerName, currentDate, city, cities }) => {
   return (
     <div className="city">
       <div className="city-header-console">
-        <h3 className="player-name-display">
-          Player: <span className="player-name">{playerName}</span>
-        </h3>
+        <div className="name-money-wrapper">
+          <h3 className="player-name-display">
+            Player: <span>{player.name}</span>
+          </h3>
+          <h3 className="player-money-display">
+            Money: <span>${player.money}</span>
+          </h3>
+        </div>
         <div className="day-title-wrapper">
-          <h3 className="current-day">Day: {currentDate}</h3>
-          <h3 className="city-title">Location: {city}</h3>
+          <h3 className="current-day">
+            Day: <span>{currentDate}</span>
+          </h3>
+          <h3 className="city-title">
+            Location: <span>{city}</span>
+          </h3>
         </div>
+
         <div className="sale-info">
-          <h4>Quantity</h4>
-          <h4>Item</h4>
-          <h4>Price</h4>
+          <h4 className="quantity-info">Quantity</h4>
+          <h4 className="item-info">Item</h4>
+          <h4 className="price-info">Price</h4>
         </div>
+
         <div className="sale-display">{items}</div>
       </div>
     </div>

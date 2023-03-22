@@ -12,10 +12,13 @@ const Map = ({ currentCity, travelToCity, cities }) => {
             <button
               key={city.name}
               disabled={city.name === currentCity}
-              onClick={() => travelToCity(city.name)}
+              onClick={() => {
+                travelToCity(city.name);
+                console.log(city.name);
+              }}
               className="travel-btn"
             >
-              {city.name}
+              {city.name.toUpperCase()}
             </button>
           );
         })}
