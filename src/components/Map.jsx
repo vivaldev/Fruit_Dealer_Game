@@ -1,6 +1,7 @@
 import React from "react";
+import "../styles/Map.css";
 
-const Map = ({ currentCity, travelToCity, cities }) => {
+const Map = ({ currentCity, selectedCity, travelToCity, cities }) => {
   return (
     <div className="Map">
       <div className="map-header">
@@ -11,7 +12,7 @@ const Map = ({ currentCity, travelToCity, cities }) => {
           return (
             <button
               key={city.name}
-              disabled={city.name === currentCity}
+              disabled={city.name === selectedCity}
               onClick={() => {
                 travelToCity(city.name);
                 console.log(city.name);

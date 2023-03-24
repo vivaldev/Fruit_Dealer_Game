@@ -1,0 +1,112 @@
+/* CITY */
+
+.city {
+  /* border: 1px dotted white; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 80%;
+  margin-top: 2em;
+
+  color: rgba(134, 53, 50, 0.878);
+}
+
+.city-header-console {
+  width: 100%;
+}
+
+.name-money-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.player-name-display {
+  margin-bottom: 0.4em;
+  color: rgba(36, 50, 2, 0.783);
+}
+
+.day-title-wrapper > h3,
+.player-name-display,
+.player-money-display {
+  color: rgb(134, 47, 16);
+  font-size: 1.3rem;
+}
+
+.day-title-wrapper > h3 > span,
+.player-name-display > span,
+.player-money-display > span {
+  font-size: 1.5rem;
+  color: rgba(36, 50, 2, 0.783);
+}
+.day-title-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.city-title {
+  font-size: 1.2rem;
+}
+
+/* sales display */
+
+.sale-info {
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-info {
+  margin-left: -4rem;
+}
+
+.sale-display {
+  margin-top: 2rem;
+}
+
+.sale-container {
+  margin-top: 1.5rem;
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.fruit-item {
+  color: rgba(86, 56, 8, 0.838);
+}
+
+.price-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.fruit-price {
+  color: rgba(18, 110, 20, 0.937);
+  margin-right: 0.6em;
+}
+
+.buy-btn,
+.sell-btn {
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(33, 85, 2, 0.983);
+  padding: 0.3rem;
+}
+
+.buy-btn:hover,
+.sell-btn:hover {
+  cursor: pointer;
+}
+
+.buy-btn {
+  background-color: rgba(11, 11, 119, 0.857);
+  margin-right: 2px;
+}
+
+.sell-btn {
+  background-color: rgb(148, 11, 11);
+}

@@ -7,10 +7,6 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
-  
-
- 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,6 +22,7 @@ h3 {
   margin: 0;
 }
 
+/* CONTAINERS */
 
 .App {
   width: 100vw;
@@ -60,11 +57,9 @@ h3 {
 }
 
 .middle-container {
-
 }
 
 .right-container {
-
   border: 2px solid rgb(72, 50, 9);
 
   width: 40%;
@@ -72,242 +67,4 @@ h3 {
 
   display: flex;
   flex-direction: column;
-}
-
-
-/* HEADER */
-
-.header {
-  text-align: center;
-  color: rgb(220, 198, const 158);
-  border-bottom: 3px double rgb(195, 177, 143);
-
-  width: 60%;
-  margin-top: 1.5em;
-}
-
-.header > h1 {
-  margin-bottom: 0.3em;
-}
-
-/* EMOJI WRAPPER */
-
-.emoji-wrapper {
-  margin-top: 2.5em;
-  margin-bottom: -0.8rem;
-}
-
-.emoji-wrapper > span {
-  font-size: 3.25rem;
-  margin-right: 0.2em;
-}
-
-/* START FORM */
-
-.start-form {
-  border: 4px double rgba(206, 54, 54, 0.687);
-  border-radius: 20px;
-  width: 80%;
-  height: 26%;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  margin-top: 15%;
-}
-
-.start-form > input {
-  font-size: 1.1rem;
-  font-weight: 300;
-  color: rgb(24, 38, 2);
-
-  padding: 0.5rem;
-  margin: 1.2em 1.2em 0 1.2em;
-
-  border-radius: 10px;
-  background-color: rgba(181, 114, 86, 0.766);
-}
-
-.start-form > button {
-  font-size: 1.125rem;
-  font-weight: 600;
-
-  padding: 0.3rem;
-  margin: 0 1.2em 1.2em 1.2em;
-
-  background-color: rgba(47, 141, 39, 0.535);
-  color: rgb(197, 224, 135);
-  border-radius: 5px;
-  box-shadow: 0.2rem 0.2rem 0.3rem rgba(30, 93, 25, 0.535);
-}
-
-/* MAP */
-
-.Map {
-  width: 80%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.map-header {
- whitesmoke;
-  width: 100%;
-  text-align: center;
-}
-
-.map-title  {
-  font-size: 1.4rem;
-  margin-bottom: 0;
-}
-
-.map-btn-wrapper {
-  /* border: 3px double rgba(107, 120, 133, 0.48); */
-  border-radius: 5px;
-
-  display: flex;
-  flex-direction: column;
-
-  margin-top: 3em;
-}
-
-.travel-btn {
-  margin: 0.5em;
-  padding: 0.5em 1em;
-
-  border: 2px solid white;
-
-  font-size: 18px;
-  font-weight: 600;
-  color: white;
-  background-color: rgb(36, 81, 145);
-}
-
-
-
-.travel-btn:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-
-.travel-btn:disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
-/* CITY */
-
-.city {
-  /* border: 1px dotted white; */
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  width: 80%;
-  margin-top: 2em;
-
-  color: rgba(134, 53, 50, 0.878);
-}
-
-.city-header-console {
-  width: 100%;
-}
-
-.name-money-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.player-name-display {
-  margin-bottom: 0.4em;
-  color: rgba(36, 50, 2, 0.783);
-}
-
-.day-title-wrapper > h3,
-.player-name-display,
-.player-money-display {
- 
-  color:rgb(134, 47, 16);
-  font-size: 1.3rem;
-}
-
-.day-title-wrapper > h3 > span,
-.player-name-display > span,
-.player-money-display > span {
-  font-size: 1.5rem;
-   color: rgba(36, 50, 2, 0.783);
-}
-.day-title-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.city-title {
-  font-size: 1.2rem;
-}
-
-/* sales display */
-
-.sale-info {
-
-  border-bottom: 2px solid black;
-  display: flex;
-  justify-content: space-between;
-}
-
-.item-info {
-  margin-left: -4rem
-}
-
-.sale-display {
-  margin-top: 2rem;
-  
-}
-
-.sale-container {
-  margin-top: 1.5rem;
-  width: 100%;
-
-  display: flex;
-  justify-content: space-between;
-}
-
-.fruit-item {
-  color: rgba(86, 56, 8, 0.838);
-}
-
-.price-wrapper {
-  display: flex;
-}
-
-.fruit-price {
-  color: rgba(18, 110, 20, 0.937);
-  margin-right: 0.6em;
-}
-
-.buy-btn,
-.sell-btn {
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(33, 85, 2, 0.983);
-  padding: 0.3rem;
-}
-
-.buy-btn:hover,
-.sell-btn:hover {
-  cursor: pointer;
-}
-
-.buy-btn {
-  background-color: rgba(11, 11, 119, 0.857);
-  margin-right: 2px;
-}
-
-.sell-btn {
-  background-color: rgb(148, 11, 11);
 }

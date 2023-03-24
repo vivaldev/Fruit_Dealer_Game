@@ -1,0 +1,39 @@
+/* START FORM */
+
+.start-form {
+  border: 4px double rgba(206, 54, 54, 0.687);
+  border-radius: 20px;
+  width: 80%;
+  height: 26%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin-top: 15%;
+}
+
+.start-form > input {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgb(24, 38, 2);
+
+  padding: 0.5rem;
+  margin: 1.2em 1.2em 0 1.2em;
+
+  border-radius: 10px;
+  background-color: rgba(181, 114, 86, 0.766);
+}
+
+.start-form > button {
+  font-size: 1.125rem;
+  font-weight: 600;
+
+  padding: 0.3rem;
+  margin: 0 1.2em 1.2em 1.2em;
+
+  background-color: rgba(47, 141, 39, 0.535);
+  color: rgb(197, 224, 135);
+  border-radius: 5px;
+  box-shadow: 0.2rem 0.2rem 0.3rem rgba(30, 93, 25, 0.535);
+}

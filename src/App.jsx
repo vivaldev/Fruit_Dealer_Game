@@ -7,30 +7,7 @@ import City from "./components/City";
 import Map from "./components/Map";
 import PlayerItems from "./components/PlayerItems";
 import MiddleConsole from "./components/MiddleConsole";
-
-function getPriceAndQuantity(cityFruitPrices) {
-  const priceAndQuantity = {};
-  for (const cityFruit of cityFruitPrices) {
-    const city = cityFruit.city;
-    priceAndQuantity[city] = {};
-    for (const [
-      fruit,
-      {
-        price: [minPrice, maxPrice],
-        quantity: [minQuantity, maxQuantity],
-      },
-    ] of Object.entries(cityFruit.fruits)) {
-      const price = Math.round(
-        Math.random() * (maxPrice - minPrice) + minPrice
-      );
-      const quantity = Math.round(
-        Math.random() * (maxQuantity - minQuantity) + minQuantity
-      );
-      priceAndQuantity[city][fruit] = { price, quantity };
-    }
-  }
-  return priceAndQuantity;
-}
+import City2 from "./components/City2";
 
 function App() {
   const [player, setPlayer] = useState({
@@ -39,142 +16,145 @@ function App() {
   });
   const [gameStarted, setGameStarted] = useState(false);
   const [firstScene, setFirstScene] = useState(true);
-  const [currentDate, setCurrentDate] = useState(0);
+  const [currentDay, setCurrentDay] = useState(0);
   const [currentCity, setCurrentCity] = useState("");
+  const [cityPrices, setCityPrices] = useState([]);
+  const [cityQuantities, setCityQuantities] = useState([]);
 
-  const [cityFruitPrices, setCityFruitPrices] = useState([
+  const [itemsAlgo, setItemsAlgo] = useState([
     {
+      id: 1,
       city: "Pori",
-      fruits: {
-        pineapple: {
-          price: [2, 5],
-          quantity: [0, 10],
+      items: {
+        item1: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        mango: {
-          price: [5, 10],
-          quantity: [0, 4],
+        item2: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        watermelon: {
-          price: [4, 8],
-          quantity: [0, 5],
+        item3: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        pear: {
-          price: [1, 5],
-          quantity: [0, 15],
+        item4: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        kiwi: {
-          price: [1, 7],
-          quantity: [0, 8],
-        },
-      },
-    },
-    {
-      city: "Turku",
-      fruits: {
-        pineapple: {
-          price: [3, 6],
-          quantity: [0, 8],
-        },
-        mango: {
-          price: [4, 8],
-          quantity: [0, 6],
-        },
-        watermelon: {
-          price: [5, 10],
-          quantity: [0, 6],
-        },
-        pear: {
-          price: [2, 6],
-          quantity: [0, 12],
-        },
-        kiwi: {
-          price: [2, 8],
-          quantity: [0, 10],
+        item5: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
       },
     },
     {
+      id: 2,
       city: "Tampere",
-      fruits: {
-        pineapple: {
-          price: [2, 6],
-          quantity: [0, 12],
+      items: {
+        item1: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        mango: {
-          price: [3, 7],
-          quantity: [0, 8],
+        item2: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        watermelon: {
-          price: [6, 12],
-          quantity: [0, 8],
+        item3: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        pear: {
-          price: [1, 4],
-          quantity: [0, 20],
+        item4: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        kiwi: {
-          price: [2, 6],
-          quantity: [0, 12],
+        item5: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
       },
     },
     {
+      id: 3,
       city: "Helsinki",
-      fruits: {
-        pineapple: {
-          price: [4, 8],
-          quantity: [0, 15],
+      items: {
+        item1: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        mango: {
-          price: [7, 12],
-          quantity: [0, 5],
+        item2: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        watermelon: {
-          price: [5, 10],
-          quantity: [0, 10],
+        item3: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        pear: {
-          price: [2, 6],
-          quantity: [0, 18],
+        item4: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
-        kiwi: {
-          price: [3, 9],
-          quantity: [0, 14],
-        },
-      },
-    },
-    {
-      city: "Rauma",
-      fruits: {
-        pineapple: {
-          price: [3, 7],
-          quantity: [0, 8],
-        },
-        mango: {
-          price: [6, 11],
-          quantity: [0, 4],
-        },
-        watermelon: {
-          price: [4, 9],
-          quantity: [0, 6],
-        },
-        pear: {
-          price: [1, 4],
-          quantity: [0, 16],
-        },
-        kiwi: {
-          price: [2, 7],
-          quantity: [0, 10],
+        item5: {
+          price: [{ minPrice: 1, maxPrice: 6 }],
+          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
         },
       },
     },
   ]);
 
-  const [priceAndQuantity, setPriceAndQuantity] = useState(() =>
-    getPriceAndQuantity(cityFruitPrices)
-  );
+  // ALGORITM DEMO
 
-  console.log(priceAndQuantity);
+  const [selectedCity, setSelectedCity] = useState("Pori");
+  const [generatedValues, setGeneratedValues] = useState({});
+
+  const generateValues = () => {
+    // Finding data for the selected city from the 'prices' array
+    const selectedCityData = itemsAlgo.find(
+      (city) => city.city === selectedCity
+    );
+    // If the selected city is found in the 'prices' array, the function proceeds
+    if (selectedCityData) {
+      const cityPrices = {};
+      const cityQuantities = {};
+      Object.entries(selectedCityData.items).forEach(([key, value]) => {
+        const minPrice = value.price[0].minPrice;
+        const maxPrice = value.price[0].maxPrice;
+        const randomPrice =
+          Math.floor(Math.random() * (maxPrice - minPrice + 1)) + minPrice;
+        // Add the random price to the 'cityPrices' object
+        cityPrices[key] = randomPrice;
+
+        const minQuantity = value.quantity[0].minQuantity;
+        const maxQuantity = value.quantity[0].maxQuantity;
+        const randomQuantity =
+          Math.floor(Math.random() * (maxQuantity - minQuantity + 1)) +
+          minQuantity;
+        // Add the random quantity to the 'cityQuantities' object
+        cityQuantities[key] = randomQuantity;
+      });
+      // Set the 'cityPrices' and 'cityQuantities' states to the new objects
+      setCityPrices(cityPrices);
+      setCityQuantities(cityQuantities);
+    }
+  };
+
+  useEffect(() => {
+    generateValues();
+  }, []);
+
+  console.log(`Generated Values: ${generatedValues}`);
+
+  const handleBuyClick = (city, item) => {
+    const newGeneratedPricesAndQuantities = { ...generatedValues };
+    const selectedItem = newGeneratedPricesAndQuantities[city][item];
+    // If the selected item exists, increment its quantity by 1
+    if (selectedItem) {
+      selectedItem.quantity -= 1;
+      setGeneratedValues(newGeneratedPricesAndQuantities);
+    }
+  };
+
+  /********************************************* */
 
   const cities = [
     {
@@ -369,6 +349,7 @@ function App() {
       return (
         <Map
           currentCity={currentCity}
+          selectedCity={selectedCity}
           travelToCity={travelToCity}
           cities={cities}
         />
@@ -377,11 +358,21 @@ function App() {
 
     if (firstScene === false) {
       return (
-        <City
+        // <City
+        //   player={player}
+        //   currentDate={currentDate}
+        //   city={selectedCity}
+        //   cities={cities}
+        //   priceAndQuantity={generatedValues}
+        // />
+        <City2
+          itemsAlgo={itemsAlgo}
+          generatedValues={generatedValues}
+          selectedCity={selectedCity}
           player={player}
-          currentDate={currentDate}
-          city={currentCity}
-          cities={cities}
+          currentDay={currentDay}
+          cityPrices={cityPrices}
+          cityQuantities={cityQuantities}
         />
       );
     }
@@ -395,22 +386,19 @@ function App() {
   function startGame(e) {
     e.preventDefault();
     setGameStarted(true);
-    setCurrentDate((prevDay) => prevDay + 1);
+    setCurrentDay((prevDay) => prevDay + 1);
   }
 
   function travelToCity(cityName) {
     setFirstScene(false);
     setCurrentCity(cityName);
-    console.log(`cityName is: ${cityName}`);
+    setSelectedCity(cityName);
+    generateValues();
   }
 
-  function handleTravel() {
-    console.log("Pressed: Travel");
-  }
+  function handleTravel() {}
 
-  function triggerNextDay() {
-    console.log("Pressed: Next Day");
-  }
+  function triggerNextDay() {}
 
   return (
     <div className="App">
@@ -432,7 +420,7 @@ function App() {
         </div>
 
         <div className="right-container">
-          {firstScene ? "" : <PlayerItems />}
+          {firstScene ? "" : <PlayerItems itemsAlgo={itemsAlgo} />}
         </div>
       </div>
     </div>

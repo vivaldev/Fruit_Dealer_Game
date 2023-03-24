@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/StartForm.css";
 import Emojis from "./Emojis";
 
 const StartForm = ({ handleUsernameChange, startGame }) => {

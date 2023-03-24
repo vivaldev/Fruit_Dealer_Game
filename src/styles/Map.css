@@ -1,0 +1,55 @@
+/* MAP */
+
+.Map {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.map-header {
+ whitesmoke;
+  width: 100%;
+  text-align: center;
+}
+
+.map-title  {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+.map-btn-wrapper {
+  /* border: 3px double rgba(107, 120, 133, 0.48); */
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 3em;
+}
+
+.travel-btn {
+  margin: 0.5em;
+  padding: 0.5em 1em;
+
+  border: 2px solid white;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  background-color: rgb(36, 81, 145);
+}
+
+
+
+.travel-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.travel-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

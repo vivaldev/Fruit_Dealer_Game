@@ -1,0 +1,11 @@
+/* EMOJI WRAPPER */
+
+.emoji-wrapper {
+  margin-top: 2.5em;
+  margin-bottom: -0.8rem;
+}
+
+.emoji-wrapper > span {
+  font-size: 3.25rem;
+  margin-right: 0.2em;
+}

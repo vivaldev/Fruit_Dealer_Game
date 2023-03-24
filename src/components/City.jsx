@@ -1,6 +1,9 @@
 import React from "react";
+import "../styles/City.css";
 
-const City = ({ player, currentDate, city, cities }) => {
+const City = ({ player, currentDate, city, cities, priceAndQuantity }) => {
+  console.log(`city is: ${city}`);
+
   const items = cities
     .find((c) => c.name === city)
     .fruits.map((fruit) => {
