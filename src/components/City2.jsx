@@ -14,6 +14,15 @@ const City2 = ({
   console.log();
   return (
     <div className="city">
+      {/* HEADER CONSOLE */}
+      <div className="name-money-wrapper">
+        <h3 className="player-name-display">
+          Player: <span>{player.name}</span>
+        </h3>
+        <h3 className="player-money-display">
+          Money: <span>${player.money}</span>
+        </h3>
+      </div>
       <div className="city-header-console">
         <div className="day-title-wrapper">
           <h3>
@@ -24,22 +33,33 @@ const City2 = ({
           </h3>
         </div>
       </div>
-      <div className="sale-container">
-        <div className="quantity-wrapper">
-          {Object.entries(cityQuantities).map(([key, value]) => (
-            <>
-              <h3 key={key} className="item-quantity">
-                <span>{value} </span>
-                {key}
-              </h3>
-            </>
-          ))}
-        </div>
 
-        <div className="price-wrapper">
-          {Object.entries(cityPrices).map(([key, value]) => (
-            <h3 key={key}>{value}</h3>
-          ))}
+      {/* SALES CONSOLE */}
+      <div className="sales-container">
+        <div className="inner-sales-container">
+          <div className="quantity-wrapper">
+            {Object.entries(cityQuantities).map(([key, value]) => (
+              <>
+                <div key={key} className="quantity-name-wrapper">
+                  <h2 className="item-quantity">
+                    {value} <span className="quantity-pieces">pcs.</span>
+                  </h2>
+                  <h2 className="item-name">{key}</h2>
+                </div>
+              </>
+            ))}
+          </div>
+
+          <div className="price-wrapper">
+            {Object.entries(cityPrices).map(([key, value]) => (
+              <div className="price-buy-wrapper">
+                <h2 key={key} className="item-price">
+                  ${value}
+                </h2>
+                <button className="buy-btn">Buy</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

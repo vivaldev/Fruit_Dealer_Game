@@ -23,15 +23,8 @@
   justify-content: space-between;
 }
 
-.player-name-display {
-  margin-bottom: 0.4em;
+.player-money-display > span {
   color: rgba(36, 50, 2, 0.783);
-}
-
-.day-title-wrapper > h3,
-.player-name-display,
-.player-money-display {
-  color: rgb(134, 47, 16);
   font-size: 1.3rem;
 }
 
@@ -44,12 +37,13 @@
 .day-title-wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-}
+  justify-c{console.log(player)}
 
 .city-title {
   font-size: 1.2rem;
 }
+
+/* SALES CONSOLE */
 
 /* sales display */
 
@@ -67,17 +61,45 @@
   margin-top: 2rem;
 }
 
-.sale-container {
+/* sales container */
+
+.sales-container {
   margin-top: 1.5rem;
-  width: 100%;
+  width: 24vw;
 
   display: flex;
 
   justify-content: space-between;
+
+  border: 7px dotted saddlebrown;
 }
 
-.fruit-item {
+.inner-sales-container {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0 1.2em;
+  margin: 0 auto;
+}
+
+/* quantity and item name */
+
+.quantity-name-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  width: 11vw;
+  margin: 0 auto;
+}
+
+.item-quantity {
   color: rgba(86, 56, 8, 0.838);
+  font-size: 1.6rem;
+}
+
+.quantity-pieces {
+  font-size: 1.25rem;
 }
 
 .price-wrapper {
@@ -85,28 +107,27 @@
   flex-direction: column;
 }
 
-.fruit-price {
-  color: rgba(18, 110, 20, 0.937);
+/* price and buy button */
+
+.price-buy-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 0.2em;
+}
+
+.item-price {
+  color: rgba(35, 107, 36, 0.937);
   margin-right: 0.6em;
-}
-
-.buy-btn,
-.sell-btn {
-  border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(33, 85, 2, 0.983);
-  padding: 0.3rem;
-}
-
-.buy-btn:hover,
-.sell-btn:hover {
-  cursor: pointer;
 }
 
 .buy-btn {
   background-color: rgba(11, 11, 119, 0.857);
   margin-right: 2px;
-}
-
-.sell-btn {
-  background-color: rgb(148, 11, 11);
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(33, 85, 2, 0.983);
+  padding: 0.3rem;
+  width: 3em;
+  height: 2.5em;
+  font-weight: 600;
+  color: rgba(216, 229, 240, 0.937);
 }

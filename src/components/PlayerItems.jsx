@@ -71,40 +71,7 @@ const PlayerItems = ({ itemsAlgo }) => {
 
   return (
     <div>
-      <label>
-        Select a city:
-        <select
-          value={selectedCity}
-          onChange={(e) => setSelectedCity(e.target.value)}
-        >
-          <option value="">--Select--</option>
-          {itemsAlgo.map((city) => (
-            <option key={city.id} value={city.city}>
-              {city.city}
-            </option>
-          ))}
-        </select>
-      </label>
-      <button onClick={generateRandomPricesAndQuantities}>
-        Generate Prices and Quantities
-      </button>
-      <div>
-        {Object.entries(generatedValues).map(([city, items]) => (
-          <div key={city}>
-            <h2>{city}</h2>
-            <ul>
-              {Object.entries(items).map(([item, { price, quantity }]) => (
-                <li key={item}>
-                  {item}: {price} €, {quantity} pcs
-                  <button onClick={() => handleBuyClick(city, item)}>
-                    Buy
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
+      <h1>Player Items</h1>
     </div>
   );
 };

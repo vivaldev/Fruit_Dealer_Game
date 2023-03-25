@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./styles/App.css";
 
 import Header from "./components/Header";
 import StartForm from "./components/StartForm";
@@ -18,8 +18,8 @@ function App() {
   const [firstScene, setFirstScene] = useState(true);
   const [currentDay, setCurrentDay] = useState(0);
   const [currentCity, setCurrentCity] = useState("");
-  const [cityPrices, setCityPrices] = useState([]);
-  const [cityQuantities, setCityQuantities] = useState([]);
+  const [cityPrices, setCityPrices] = useState({});
+  const [cityQuantities, setCityQuantities] = useState({});
 
   const [itemsAlgo, setItemsAlgo] = useState([
     {
@@ -104,7 +104,7 @@ function App() {
 
   // ALGORITM DEMO
 
-  const [selectedCity, setSelectedCity] = useState("Pori");
+  const [selectedCity, setSelectedCity] = useState("");
   const [generatedValues, setGeneratedValues] = useState({});
 
   const generateValues = () => {
@@ -112,18 +112,26 @@ function App() {
     const selectedCityData = itemsAlgo.find(
       (city) => city.city === selectedCity
     );
+
     // If the selected city is found in the 'prices' array, the function proceeds
     if (selectedCityData) {
       const cityPrices = {};
       const cityQuantities = {};
+
+      // By using Object.entries method, we iterate and
+      // initialize each 'key-value' pair to minPrice and
+      // maxPrice variables.
       Object.entries(selectedCityData.items).forEach(([key, value]) => {
         const minPrice = value.price[0].minPrice;
         const maxPrice = value.price[0].maxPrice;
+
+        // Those values are used for creating randomPrice value.
         const randomPrice =
           Math.floor(Math.random() * (maxPrice - minPrice + 1)) + minPrice;
         // Add the random price to the 'cityPrices' object
         cityPrices[key] = randomPrice;
 
+        // Same happend for quantity
         const minQuantity = value.quantity[0].minQuantity;
         const maxQuantity = value.quantity[0].maxQuantity;
         const randomQuantity =
@@ -140,7 +148,7 @@ function App() {
 
   useEffect(() => {
     generateValues();
-  }, []);
+  }, [selectedCity]);
 
   console.log(`Generated Values: ${generatedValues}`);
 
