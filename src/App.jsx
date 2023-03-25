@@ -7,7 +7,6 @@ import City from "./components/City";
 import Map from "./components/Map";
 import PlayerItems from "./components/PlayerItems";
 import MiddleConsole from "./components/MiddleConsole";
-import City2 from "./components/City2";
 
 function App() {
   const [player, setPlayer] = useState({
@@ -102,8 +101,6 @@ function App() {
     },
   ]);
 
-  // ALGORITM DEMO
-
   const [selectedCity, setSelectedCity] = useState("");
   const [generatedValues, setGeneratedValues] = useState({});
 
@@ -150,8 +147,6 @@ function App() {
     generateValues();
   }, [selectedCity]);
 
-  console.log(`Generated Values: ${generatedValues}`);
-
   const handleBuyClick = (city, item) => {
     const newGeneratedPricesAndQuantities = { ...generatedValues };
     const selectedItem = newGeneratedPricesAndQuantities[city][item];
@@ -163,185 +158,6 @@ function App() {
   };
 
   /********************************************* */
-
-  const cities = [
-    {
-      name: "Pori",
-      fruits: [
-        {
-          id: 1,
-          fruit: "Pineapple",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 2,
-        },
-        {
-          id: 2,
-          fruit: "Mango",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 5,
-        },
-        {
-          id: 3,
-          fruit: "Watermelon",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 3,
-        },
-        {
-          id: 4,
-          fruit: "Pear",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 5,
-        },
-        {
-          id: 5,
-          fruit: "Kiwi",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 4,
-        },
-      ],
-    },
-    {
-      name: "Turku",
-      fruits: [
-        {
-          id: 1,
-          fruit: "Pineapple",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 4,
-        },
-        {
-          id: 2,
-          fruit: "Mango",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 3,
-        },
-        {
-          id: 3,
-          fruit: "Watermelon",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 6,
-        },
-        {
-          id: 4,
-          fruit: "Pear",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 2,
-        },
-        {
-          id: 5,
-          fruit: "Kiwi",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 1,
-        },
-      ],
-    },
-    {
-      name: "Helsinki",
-      fruits: [
-        {
-          id: 1,
-          fruit: "Pineapple",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 4,
-        },
-        {
-          id: 2,
-          fruit: "Mango",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 3,
-        },
-        {
-          id: 3,
-          fruit: "Watermelon",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 6,
-        },
-        {
-          id: 4,
-          fruit: "Pear",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 2,
-        },
-        {
-          id: 5,
-          fruit: "Kiwi",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 1,
-        },
-      ],
-    },
-    {
-      name: "Tampere",
-      fruits: [
-        {
-          id: 1,
-          fruit: "Pineapple",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 4,
-        },
-        {
-          id: 2,
-          fruit: "Mango",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 3,
-        },
-        {
-          id: 3,
-          fruit: "Watermelon",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 6,
-        },
-        {
-          id: 4,
-          fruit: "Pear",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 2,
-        },
-        {
-          id: 5,
-          fruit: "Kiwi",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 1,
-        },
-      ],
-    },
-    {
-      name: "Rauma",
-      fruits: [
-        {
-          id: 1,
-          fruit: "Pineapple",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 4,
-        },
-        {
-          id: 2,
-          fruit: "Mango",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 3,
-        },
-        {
-          id: 3,
-          fruit: "Watermelon",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 6,
-        },
-        {
-          id: 4,
-          fruit: "Pear",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 2,
-        },
-        {
-          id: 5,
-          fruit: "Kiwi",
-          price: Math.floor(Math.random() * 10) + 1,
-          quantity: 1,
-        },
-      ],
-    },
-    // Add more cities with different fruits and prices
-  ];
 
   const scenes = () => {
     if (gameStarted === false && firstScene === true) {
@@ -356,10 +172,9 @@ function App() {
     if (gameStarted === true && firstScene === true) {
       return (
         <Map
-          currentCity={currentCity}
           selectedCity={selectedCity}
           travelToCity={travelToCity}
-          cities={cities}
+          itemsAlgo={itemsAlgo}
         />
       );
     }
@@ -373,9 +188,7 @@ function App() {
         //   cities={cities}
         //   priceAndQuantity={generatedValues}
         // />
-        <City2
-          itemsAlgo={itemsAlgo}
-          generatedValues={generatedValues}
+        <City
           selectedCity={selectedCity}
           player={player}
           currentDay={currentDay}
@@ -387,7 +200,6 @@ function App() {
   };
 
   function handleUsernameChange(e) {
-    // console.log(e.target.value);
     setPlayer({ ...player, name: e.target.value });
   }
 
