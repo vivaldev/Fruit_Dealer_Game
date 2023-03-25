@@ -37,7 +37,8 @@
 .day-title-wrapper {
   width: 100%;
   display: flex;
-  justify-c{console.log(player)}
+  justify-content: space-between;
+}
 
 .city-title {
   font-size: 1.2rem;
