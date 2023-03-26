@@ -8,6 +8,7 @@ const City = ({
   currentDay,
   cityPrices,
   cityQuantities,
+  handleBuyClick,
 }) => {
   return (
     <div className="city">
@@ -53,7 +54,12 @@ const City = ({
                 <h2 key={key} className="item-price">
                   ${value}
                 </h2>
-                <button className="buy-btn">Buy</button>
+                <button
+                  onClick={() => handleBuyClick(key, value)}
+                  className="buy-btn"
+                >
+                  Buy
+                </button>
               </div>
             ))}
           </div>

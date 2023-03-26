@@ -23,24 +23,7 @@ const Map = ({
       <div className="map-header">
         <p className="map-title">Choose your destination:</p>
       </div>
-      <div className="map-btn-wrapper">
-        {travelBtn}
-        {/* {cities.map((city) => {
-          return (
-            <button
-              key={city.name}
-              disabled={city.name === selectedCity}
-              onClick={() => {
-                travelToCity(city.name);
-                console.log(city.name);
-              }}
-              className="travel-btn"
-            >
-              {city.name.toUpperCase()}
-            </button>
-          );
-        })} */}
-      </div>
+      <div className="map-btn-wrapper">{travelBtn}</div>
     </div>
   );
 };

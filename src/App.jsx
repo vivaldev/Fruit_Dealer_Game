@@ -11,7 +11,7 @@ import MiddleConsole from "./components/MiddleConsole";
 function App() {
   const [player, setPlayer] = useState({
     name: "",
-    money: 15,
+    money: 25,
   });
   const [gameStarted, setGameStarted] = useState(false);
   const [firstScene, setFirstScene] = useState(true);
@@ -147,15 +147,17 @@ function App() {
     generateValues();
   }, [selectedCity]);
 
-  const handleBuyClick = (city, item) => {
-    const newGeneratedPricesAndQuantities = { ...generatedValues };
-    const selectedItem = newGeneratedPricesAndQuantities[city][item];
-    // If the selected item exists, increment its quantity by 1
-    if (selectedItem) {
-      selectedItem.quantity -= 1;
-      setGeneratedValues(newGeneratedPricesAndQuantities);
+  function handleBuyClick(item, value) {
+    const newQuantity = { ...cityQuantities };
+    const newPlayer = { ...player };
+
+    if (newQuantity[item] > 0 && newPlayer.money >= cityPrices[item]) {
+      newQuantity[item] -= 1;
+      newPlayer.money -= cityPrices[item];
+      setCityQuantities(newQuantity);
+      setPlayer(newPlayer);
     }
-  };
+  }
 
   /********************************************* */
 
@@ -181,19 +183,13 @@ function App() {
 
     if (firstScene === false) {
       return (
-        // <City
-        //   player={player}
-        //   currentDate={currentDate}
-        //   city={selectedCity}
-        //   cities={cities}
-        //   priceAndQuantity={generatedValues}
-        // />
         <City
           selectedCity={selectedCity}
           player={player}
           currentDay={currentDay}
           cityPrices={cityPrices}
           cityQuantities={cityQuantities}
+          handleBuyClick={handleBuyClick}
         />
       );
     }
