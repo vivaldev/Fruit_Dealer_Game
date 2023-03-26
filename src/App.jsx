@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./styles/App.css";
+import "./database/itemsMinMax.js";
 
 import Header from "./components/Header";
 import StartForm from "./components/StartForm";
@@ -231,6 +232,7 @@ function App() {
             <MiddleConsole
               triggerNextDay={triggerNextDay}
               handleTravel={handleTravel}
+              selectedCity={selectedCity}
             />
           )}
         </div>
