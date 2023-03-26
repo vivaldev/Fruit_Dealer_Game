@@ -72,7 +72,9 @@
 
   justify-content: space-between;
 
-  border: 7px dotted saddlebrown;
+  border: 6px dotted saddlebrown;
+  margin: 1em;
+  padding: 1em;
 }
 
 .inner-sales-container {

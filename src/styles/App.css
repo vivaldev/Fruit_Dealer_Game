@@ -39,9 +39,9 @@ h3 {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  border: 1px solid black;
-  width: 55%;
-  height: 78%;
+
+  width: 60%;
+  height: 80%;
 }
 
 .left-container {
@@ -57,14 +57,18 @@ h3 {
 }
 
 .middle-container {
+  height: 100%;
+  border-top: 6px double rgba(237, 150, 83, 0.829);
+  border-bottom: 6px double rgba(237, 150, 83, 0.829);
 }
 
 .right-container {
-  border: 2px solid rgb(72, 50, 9);
-
-  width: 40%;
+  width: 50%;
   height: 100%;
 
   display: flex;
   flex-direction: column;
+
+  border: 6px double rgba(237, 150, 83, 0.829);
+  background-color: rgba(190, 135, 33, 0.783);
 }

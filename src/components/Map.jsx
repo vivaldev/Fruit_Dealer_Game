@@ -10,7 +10,7 @@ const Map = ({
   const travelBtn = itemsAlgo.map((c) => {
     return (
       <button
-        className="travel-btn"
+        className="travel-to-city-btn"
         disabled={c.city === selectedCity}
         onClick={() => travelToCity(c.city)}
       >
