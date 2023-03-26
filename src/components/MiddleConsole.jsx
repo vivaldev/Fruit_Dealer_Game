@@ -1,12 +1,36 @@
 import React from "react";
 import "../styles/MiddleConsole.css";
 
-const MiddleConsole = ({ triggerNextDay, handleTravel, selectedCity }) => {
+const MiddleConsole = ({
+  triggerNextDay,
+  handleTravel,
+  selectedCity,
+  playerItems,
+  buyTarget,
+  player,
+  isBought,
+}) => {
   return (
     <div className="middle-console">
-      <div className="shop-cart-container">
-        <h3>Shop cart in {selectedCity}:</h3>
-      </div>
+      {isBought && (
+        <div className="event-display-container">
+          <h2>Event:</h2>
+          <p>
+            <span className="event-player event">{player}</span>
+            <br />
+            just bought
+            <br />
+            <span className="event-quantity event">{buyTarget.quantity} </span>
+            <span className="event-item event">{buyTarget.name}</span>
+            <br />
+            for
+            <br />
+            <span className="event-price event">{buyTarget.price}</span>{" "}
+            <span className="event-dollars">dollars</span>
+          </p>
+        </div>
+      )}
+
       <div className="btn-wrapper">
         <div className="btn-label-wrapper">
           <p className="btn-label">Travel to another city:</p>
@@ -18,7 +42,7 @@ const MiddleConsole = ({ triggerNextDay, handleTravel, selectedCity }) => {
         <div className="btn-label-wrapper">
           <p className="btn-label">Rent a room from {selectedCity}:</p>
           <button className="nextday-btn" onClick={triggerNextDay}>
-            Go to Hotel
+            Stay in Hotel
           </button>
         </div>
       </div>

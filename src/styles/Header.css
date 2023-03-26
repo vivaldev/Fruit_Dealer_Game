@@ -2,8 +2,8 @@
 
 .header {
   text-align: center;
-  color: rgb(220, 198, const 158);
-  border-bottom: 3px double rgb(195, 177, 143);
+  color: rgb(7, 101, 14);
+  border-bottom: 3px double rgb(13, 84, 13);
 
   width: 60%;
   margin-top: 1.5em;
@@ -11,4 +11,5 @@
 
 .header > h1 {
   margin-bottom: 0.3em;
+  font-size: 2.3rem;
 }

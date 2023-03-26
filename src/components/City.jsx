@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../styles/City.css";
 
 const City = ({
@@ -37,25 +36,23 @@ const City = ({
         <div className="inner-sales-container">
           <div className="quantity-wrapper">
             {Object.entries(cityQuantities).map(([key, value]) => (
-              <>
-                <div key={key} className="quantity-name-wrapper">
-                  <h2 className="item-quantity">
-                    {value} <span className="quantity-pieces">pcs.</span>
-                  </h2>
-                  <h2 className="item-name">{key}</h2>
-                </div>
-              </>
+              <div key={key} className="quantity-name-wrapper">
+                <h2 className="item-quantity">
+                  {value} <span className="quantity-pieces">pcs.</span>
+                </h2>
+                <h2 className="item-name">{key}</h2>
+              </div>
             ))}
           </div>
 
           <div className="price-wrapper">
             {Object.entries(cityPrices).map(([key, value]) => (
-              <div className="price-buy-wrapper">
-                <h2 key={key} className="item-price">
-                  ${value}
-                </h2>
+              <div key={key} className="price-buy-wrapper">
+                <h2 className="item-price">${value}</h2>
                 <button
-                  onClick={() => handleBuyClick(key, value)}
+                  onClick={() =>
+                    handleBuyClick(key, value, cityQuantities[key])
+                  }
                   className="buy-btn"
                 >
                   Buy

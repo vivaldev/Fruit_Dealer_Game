@@ -38,6 +38,12 @@ function App() {
       quantity: 0,
     },
   });
+  const [buyTarget, setBuyTarget] = useState({
+    name: "",
+    price: 0,
+    quantity: 0,
+  });
+  const [isBought, setIsBought] = useState(false);
 
   const generateValues = () => {
     // Finding data for the selected city from the 'prices' array
@@ -86,6 +92,7 @@ function App() {
     const newQuantity = { ...cityQuantities };
     const newPlayer = { ...player };
     const newPlayerItems = { ...playerItems };
+    let newBuyTarget = { ...buyTarget };
 
     console.log(key, value, quantity);
 
@@ -93,10 +100,19 @@ function App() {
       newQuantity[key] -= 1;
       newPlayer.money -= cityPrices[key];
       newPlayerItems[key].quantity += 1;
+      newBuyTarget = {
+        name: key,
+        price: value,
+        quantity: quantity - (quantity - 1),
+      };
+
       setCityQuantities(newQuantity);
       setPlayer(newPlayer);
+      setBuyTarget(newBuyTarget);
+      setIsBought(true);
     }
     console.log(playerItems);
+    console.log(`buyTarget: ${buyTarget.name}`);
   }
 
   /********************************************* */
@@ -173,6 +189,9 @@ function App() {
               handleTravel={handleTravel}
               selectedCity={selectedCity}
               playerItems={playerItems}
+              buyTarget={buyTarget}
+              player={player.name}
+              isBought={isBought}
             />
           )}
         </div>
