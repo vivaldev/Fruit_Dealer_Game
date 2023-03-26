@@ -18,12 +18,11 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [firstScene, setFirstScene] = useState(true);
   const [currentDay, setCurrentDay] = useState(0);
-  const [currentCity, setCurrentCity] = useState("");
+
   const [cityPrices, setCityPrices] = useState({});
   const [cityQuantities, setCityQuantities] = useState({});
 
   const [selectedCity, setSelectedCity] = useState("");
-  const [generatedValues, setGeneratedValues] = useState({});
 
   const generateValues = () => {
     // Finding data for the selected city from the 'prices' array
@@ -107,7 +106,6 @@ function App() {
         <City
           selectedCity={selectedCity}
           player={player}
-          currentDay={currentDay}
           cityPrices={cityPrices}
           cityQuantities={cityQuantities}
           handleBuyClick={handleBuyClick}
@@ -128,7 +126,7 @@ function App() {
 
   function travelToCity(cityName) {
     setFirstScene(false);
-    setCurrentCity(cityName);
+
     setSelectedCity(cityName);
     generateValues();
   }
