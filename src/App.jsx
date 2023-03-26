@@ -18,11 +18,26 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
   const [firstScene, setFirstScene] = useState(true);
   const [currentDay, setCurrentDay] = useState(0);
-
   const [cityPrices, setCityPrices] = useState({});
   const [cityQuantities, setCityQuantities] = useState({});
-
   const [selectedCity, setSelectedCity] = useState("");
+  const [playerItems, setPlayerItems] = useState({
+    Kiwi: {
+      quantity: 0,
+    },
+    Pineapple: {
+      quantity: 0,
+    },
+    Watermelon: {
+      quantity: 0,
+    },
+    Strawberry: {
+      quantity: 0,
+    },
+    Mango: {
+      quantity: 0,
+    },
+  });
 
   const generateValues = () => {
     // Finding data for the selected city from the 'prices' array
@@ -67,16 +82,21 @@ function App() {
     generateValues();
   }, [selectedCity]);
 
-  function handleBuyClick(item, value) {
+  function handleBuyClick(key, value, quantity) {
     const newQuantity = { ...cityQuantities };
     const newPlayer = { ...player };
+    const newPlayerItems = { ...playerItems };
 
-    if (newQuantity[item] > 0 && newPlayer.money >= cityPrices[item]) {
-      newQuantity[item] -= 1;
-      newPlayer.money -= cityPrices[item];
+    console.log(key, value, quantity);
+
+    if (newQuantity[key] > 0 && newPlayer.money >= cityPrices[key]) {
+      newQuantity[key] -= 1;
+      newPlayer.money -= cityPrices[key];
+      newPlayerItems[key].quantity += 1;
       setCityQuantities(newQuantity);
       setPlayer(newPlayer);
     }
+    console.log(playerItems);
   }
 
   /********************************************* */
@@ -109,6 +129,7 @@ function App() {
           cityPrices={cityPrices}
           cityQuantities={cityQuantities}
           handleBuyClick={handleBuyClick}
+          currentDay={currentDay}
         />
       );
     }
@@ -151,12 +172,13 @@ function App() {
               triggerNextDay={triggerNextDay}
               handleTravel={handleTravel}
               selectedCity={selectedCity}
+              playerItems={playerItems}
             />
           )}
         </div>
 
         <div className="right-container">
-          {firstScene ? "" : <PlayerItems />}
+          {firstScene ? "" : <PlayerItems playerItems={playerItems} />}
         </div>
       </div>
     </div>
