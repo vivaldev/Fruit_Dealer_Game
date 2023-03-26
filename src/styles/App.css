@@ -40,13 +40,13 @@ h3 {
   align-items: flex-end;
   justify-content: space-between;
 
-  width: 60%;
+  width: 70%;
   height: 80%;
 }
 
 .left-container {
   border: 6px double rgba(237, 150, 83, 0.829);
-  width: 50%;
+  width: 60%;
   height: 100%;
 
   display: flex;

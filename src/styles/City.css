@@ -70,11 +70,10 @@
 
   display: flex;
 
-  justify-content: space-between;
-
   border: 6px dotted saddlebrown;
   margin: 1em;
   padding: 1em;
+  width: 110%;
 }
 
 .inner-sales-container {
@@ -82,8 +81,6 @@
   justify-content: space-between;
 
   width: 100%;
-  padding: 0 1.2em;
-  margin: 0 auto;
 }
 
 /* quantity and item name */
@@ -92,17 +89,20 @@
   display: flex;
   justify-content: space-between;
 
-  width: 11vw;
-  margin: 0 auto;
+  width: 15vw;
 }
 
 .item-quantity {
   color: rgba(86, 56, 8, 0.838);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  margin-right: 1em;
 }
 
 .quantity-pieces {
   font-size: 1.25rem;
+}
+
+.item-name {
 }
 
 .price-wrapper {
@@ -115,7 +115,6 @@
 .price-buy-wrapper {
   display: flex;
   align-items: center;
-  margin-top: 0.2em;
 }
 
 .item-price {
@@ -125,7 +124,7 @@
 
 .buy-btn {
   background-color: rgba(11, 11, 119, 0.857);
-  margin-right: 2px;
+
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(33, 85, 2, 0.983);
   padding: 0.3rem;
