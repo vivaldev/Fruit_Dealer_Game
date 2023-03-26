@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/PlayerItems.css";
 
-const PlayerItems = ({ itemsAlgo }) => {
+const PlayerItems = () => {
   const [selectedCity, setSelectedCity] = useState("pori");
 
   return (

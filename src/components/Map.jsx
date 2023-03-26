@@ -5,9 +5,9 @@ const Map = ({
   selectedCity,
   travelToCity,
 
-  itemsAlgo,
+  itemsMinMax,
 }) => {
-  const travelBtn = itemsAlgo.map((c) => {
+  const travelBtn = itemsMinMax.map((c) => {
     return (
       <button
         className="travel-to-city-btn"

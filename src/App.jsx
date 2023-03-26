@@ -8,6 +8,7 @@ import City from "./components/City";
 import Map from "./components/Map";
 import PlayerItems from "./components/PlayerItems";
 import MiddleConsole from "./components/MiddleConsole";
+import itemsMinMax from "./database/itemsMinMax.js";
 
 function App() {
   const [player, setPlayer] = useState({
@@ -21,93 +22,12 @@ function App() {
   const [cityPrices, setCityPrices] = useState({});
   const [cityQuantities, setCityQuantities] = useState({});
 
-  const [itemsAlgo, setItemsAlgo] = useState([
-    {
-      id: 1,
-      city: "Pori",
-      items: {
-        item1: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item2: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item3: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item4: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item5: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-      },
-    },
-    {
-      id: 2,
-      city: "Tampere",
-      items: {
-        item1: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item2: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item3: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item4: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item5: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-      },
-    },
-    {
-      id: 3,
-      city: "Helsinki",
-      items: {
-        item1: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item2: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item3: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item4: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-        item5: {
-          price: [{ minPrice: 1, maxPrice: 6 }],
-          quantity: [{ minQuantity: 0, maxQuantity: 10 }],
-        },
-      },
-    },
-  ]);
-
   const [selectedCity, setSelectedCity] = useState("");
   const [generatedValues, setGeneratedValues] = useState({});
 
   const generateValues = () => {
     // Finding data for the selected city from the 'prices' array
-    const selectedCityData = itemsAlgo.find(
+    const selectedCityData = itemsMinMax.find(
       (city) => city.city === selectedCity
     );
 
@@ -177,7 +97,7 @@ function App() {
         <Map
           selectedCity={selectedCity}
           travelToCity={travelToCity}
-          itemsAlgo={itemsAlgo}
+          itemsMinMax={itemsMinMax}
         />
       );
     }
@@ -238,7 +158,7 @@ function App() {
         </div>
 
         <div className="right-container">
-          {firstScene ? "" : <PlayerItems itemsAlgo={itemsAlgo} />}
+          {firstScene ? "" : <PlayerItems />}
         </div>
       </div>
     </div>
