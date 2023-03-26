@@ -132,3 +132,9 @@
   font-weight: 600;
   color: rgba(216, 229, 240, 0.937);
 }
+
+.buy-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 2px 2px 10px rgba(108, 122, 135, 0.937);
+}
