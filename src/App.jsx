@@ -16,7 +16,7 @@ function App() {
     money: 25,
   });
   const [gameStarted, setGameStarted] = useState(false);
-  const [firstScene, setFirstScene] = useState(true);
+  const [mapScene, setMapScene] = useState(true);
   const [currentDay, setCurrentDay] = useState(0);
   const [cityPrices, setCityPrices] = useState({});
   const [cityQuantities, setCityQuantities] = useState({});
@@ -105,20 +105,17 @@ function App() {
         price: value,
         quantity: quantity - (quantity - 1),
       };
-
+      setIsBought(true);
       setCityQuantities(newQuantity);
       setPlayer(newPlayer);
       setBuyTarget(newBuyTarget);
-      setIsBought(true);
     }
-    console.log(playerItems);
-    console.log(`buyTarget: ${buyTarget.name}`);
   }
 
   /********************************************* */
 
   const scenes = () => {
-    if (gameStarted === false && firstScene === true) {
+    if (gameStarted === false && mapScene === true) {
       return (
         <StartForm
           handleUsernameChange={handleUsernameChange}
@@ -127,17 +124,19 @@ function App() {
       );
     }
 
-    if (gameStarted === true && firstScene === true) {
+    if (gameStarted === true && mapScene === true) {
       return (
         <Map
           selectedCity={selectedCity}
           travelToCity={travelToCity}
           itemsMinMax={itemsMinMax}
+          player={player}
+          isBought={isBought}
         />
       );
     }
 
-    if (firstScene === false) {
+    if (mapScene === false) {
       return (
         <City
           selectedCity={selectedCity}
@@ -162,13 +161,16 @@ function App() {
   }
 
   function travelToCity(cityName) {
-    setFirstScene(false);
+    setMapScene(false);
 
     setSelectedCity(cityName);
-    generateValues();
+    setCurrentDay((prevDay) => prevDay + 1);
   }
 
-  function handleTravel() {}
+  function handleTravel() {
+    setMapScene(true);
+    setIsBought(false);
+  }
 
   function triggerNextDay() {}
 
@@ -181,7 +183,7 @@ function App() {
         </div>
 
         <div className="middle-container">
-          {firstScene ? (
+          {mapScene ? (
             ""
           ) : (
             <MiddleConsole
@@ -197,7 +199,7 @@ function App() {
         </div>
 
         <div className="right-container">
-          {firstScene ? "" : <PlayerItems playerItems={playerItems} />}
+          {mapScene ? "" : <PlayerItems playerItems={playerItems} />}
         </div>
       </div>
     </div>

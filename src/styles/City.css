@@ -50,8 +50,11 @@
 
 .sale-info {
   border-bottom: 2px solid black;
+  color: rgba(28, 39, 2, 0.783);
   display: flex;
   justify-content: space-between;
+
+  padding-bottom: 1em;
 }
 
 .item-info {
@@ -69,8 +72,9 @@
   width: 24vw;
 
   display: flex;
+  flex-direction: column;
 
-  border: 6px dotted saddlebrown;
+  /* border: 6px dotted saddlebrown; */
   margin: 1em;
   padding: 1em;
   width: 110%;
@@ -93,7 +97,7 @@
 }
 
 .item-quantity {
-  color: rgba(86, 56, 8, 0.838);
+  color: rgba(61, 39, 4, 0.838);
   font-size: 1.5rem;
   margin-right: 1em;
 }
@@ -102,7 +106,15 @@
   font-size: 1.25rem;
 }
 
+.item-name-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
 .item-name {
+  color: rgba(3, 50, 2, 0.783);
 }
 
 .price-wrapper {
@@ -118,7 +130,7 @@
 }
 
 .item-price {
-  color: rgba(35, 107, 36, 0.937);
+  color: rgba(5, 101, 7, 0.937);
   margin-right: 0.6em;
 }
 

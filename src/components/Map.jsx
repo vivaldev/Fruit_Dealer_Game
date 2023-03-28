@@ -1,12 +1,7 @@
 import React from "react";
 import "../styles/Map.css";
 
-const Map = ({
-  selectedCity,
-  travelToCity,
-
-  itemsMinMax,
-}) => {
+const Map = ({ selectedCity, travelToCity, player, isBought, itemsMinMax }) => {
   const travelBtn = itemsMinMax.map((c) => {
     return (
       <button

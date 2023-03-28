@@ -1,6 +1,42 @@
 import React from "react";
 import "../styles/MiddleConsole.css";
 
+const EventDisplayInMarket = ({ player, buyTarget }) => {
+  return (
+    <div className="event-display-container">
+      <h2>Event:</h2>
+      <p>
+        <span className="event-player event">{player}</span>
+        <br />
+        just bought
+        <br />
+        <span className="event-quantity event">{buyTarget.quantity} </span>
+        <span className="event-item event">{buyTarget.name}</span>
+        <br />
+        for
+        <br />
+        <span className="event-price event">{buyTarget.price}</span>{" "}
+        <span className="event-dollars">dollars</span>
+      </p>
+    </div>
+  );
+};
+
+const EventDisplayAtAiroport = (props) => {
+  return (
+    <div className="event-display-container">
+      <h2>Event:</h2>
+      <p>
+        You're currently
+        <br />
+        at the city of
+        <br /> <br />
+        <span className="event-current-location"> {props.selectedCity}</span>
+      </p>
+    </div>
+  );
+};
+
 const MiddleConsole = ({
   triggerNextDay,
   handleTravel,
@@ -12,23 +48,10 @@ const MiddleConsole = ({
 }) => {
   return (
     <div className="middle-console">
-      {isBought && (
-        <div className="event-display-container">
-          <h2>Event:</h2>
-          <p>
-            <span className="event-player event">{player}</span>
-            <br />
-            just bought
-            <br />
-            <span className="event-quantity event">{buyTarget.quantity} </span>
-            <span className="event-item event">{buyTarget.name}</span>
-            <br />
-            for
-            <br />
-            <span className="event-price event">{buyTarget.price}</span>{" "}
-            <span className="event-dollars">dollars</span>
-          </p>
-        </div>
+      {isBought ? (
+        <EventDisplayInMarket player={player} buyTarget={buyTarget} />
+      ) : (
+        <EventDisplayAtAiroport selectedCity={selectedCity} />
       )}
 
       <div className="btn-wrapper">

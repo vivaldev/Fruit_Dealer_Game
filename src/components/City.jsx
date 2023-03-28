@@ -33,6 +33,12 @@ const City = ({
 
       {/* SALES CONSOLE */}
       <div className="sales-container">
+        <div className="sale-info">
+          <h3>Quantity</h3>
+          <h3>Sale item</h3>
+          <h3>Price</h3>
+        </div>
+
         <div className="inner-sales-container">
           <div className="quantity-wrapper">
             {Object.entries(cityQuantities).map(([key, value]) => (
@@ -40,7 +46,9 @@ const City = ({
                 <h2 className="item-quantity">
                   {value} <span className="quantity-pieces">pcs.</span>
                 </h2>
-                <h2 className="item-name">{key}</h2>
+                <div className="item-name-wrapper">
+                  <h2 className="item-name">{key}</h2>
+                </div>
               </div>
             ))}
           </div>
